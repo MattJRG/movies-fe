@@ -1,0 +1,15 @@
+<header class="container">
+  <div>Movies App</div>
+</header>
+
+<main>
+  <div class="container">
+    <div *ngFor="let movie of movies" class="wrapper">
+      <img [src]="movie.image">
+      <div>Name: {{ movie.name }}</div>
+      <div>Main Actor: {{ movie.mainActor }}</div>
+      <div>Length: {{ movie.length }}</div>
+      <div>Release Year: {{ movie.releaseYear }}</div>
+    </div>
+  </div>
+</main>

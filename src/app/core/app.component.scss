@@ -1,0 +1,30 @@
+header {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  color: white;
+  background-color: cadetblue;
+}
+
+main {
+  color: black;
+  background-color: cornsilk;
+}
+
+.container {
+  display: flex;
+  padding: 16px;
+  max-width: 1300px;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    background-color: beige;
+
+    img {
+      height: 180px;
+      width: 150px;
+    }
+  }
+}
