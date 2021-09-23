@@ -13,6 +13,7 @@ main {
 
 .container {
   display: flex;
+  justify-content: space-between;
   padding: 16px;
   max-width: 1300px;
 
@@ -25,6 +26,7 @@ main {
     img {
       height: 180px;
       width: 150px;
+      margin-bottom: 16px;
     }
   }
 }

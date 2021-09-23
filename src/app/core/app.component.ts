@@ -1,5 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { MovieState } from './stores/movies/movie.reducer';
+import { selectMovies } from './stores/movies/movie.selector';
+import * as MovieActions from './stores/movies/movie.actions';
+
 
 export interface Movie {
   name: string;
@@ -16,14 +22,13 @@ export interface Movie {
 })
 
 export class AppComponent implements OnInit {
-  backendUrl = 'http://localhost:6700'
-  movies: Movie[];
+  movies$: Observable<Movie[]>;
 
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient, private _movieStore: Store<MovieState>,) {}
 
+  // FIXME: Build out the add movie functionality
   ngOnInit(): void {
-    this._http.get<{movies: Movie[]}>(`${this.backendUrl}/`).subscribe(res => {
-      this.movies = res.movies;
-    })
+    this.movies$ = this._movieStore.select(selectMovies);
+    this._movieStore.dispatch(MovieActions.loadMovies());
   }
 }

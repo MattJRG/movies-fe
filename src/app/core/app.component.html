@@ -4,11 +4,12 @@
 
 <main>
   <div class="container">
-    <div *ngFor="let movie of movies" class="wrapper">
-      <img [src]="movie.image">
+    <div *ngFor="let movie of movies$ | async" class="wrapper">
+      <img [src]="movie.image"
+        alt="movie cover">
       <div>Name: {{ movie.name }}</div>
       <div>Main Actor: {{ movie.mainActor }}</div>
-      <div>Length: {{ movie.length }}</div>
+      <div>Length: {{ movie.length }} minutes</div>
       <div>Release Year: {{ movie.releaseYear }}</div>
     </div>
   </div>
