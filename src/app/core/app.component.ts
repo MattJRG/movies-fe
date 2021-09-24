@@ -31,4 +31,8 @@ export class AppComponent implements OnInit {
     this.movies$ = this._movieStore.select(selectMovies);
     this._movieStore.dispatch(MovieActions.loadMovies());
   }
+
+  onAddMovie(): void {
+    console.log('Open add movie dialog')
+  }
 }
