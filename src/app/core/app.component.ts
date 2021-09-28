@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { MovieState } from './stores/movies/movie.reducer';
 import { selectMovies } from './stores/movies/movie.selector';
 import * as MovieActions from './stores/movies/movie.actions';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MovieDialogComponent } from './components/movie-dialog.component';
 
 
 export interface Movie {
@@ -24,7 +26,7 @@ export interface Movie {
 export class AppComponent implements OnInit {
   movies$: Observable<Movie[]>;
 
-  constructor(private _http: HttpClient, private _movieStore: Store<MovieState>,) {}
+  constructor(private _dialog: MatDialog, private _http: HttpClient, private _movieStore: Store<MovieState>,) {}
 
   // FIXME: Build out the add movie functionality
   ngOnInit(): void {
@@ -33,6 +35,18 @@ export class AppComponent implements OnInit {
   }
 
   onAddMovie(): void {
-    console.log('Open add movie dialog')
+    const dialogConfig: MatDialogConfig = {
+      disableClose: false,
+      autoFocus: true,
+      data: {
+        mode: 'add',
+      },
+    };
+
+    const dialogRef = this._dialog.open(MovieDialogComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Dialog closed');
+      console.log('Dialog output: ', result);
+    })
   }
 }
