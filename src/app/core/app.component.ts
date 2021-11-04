@@ -2,20 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { Movie } from './models/movie.model';
 import { MovieState } from './stores/movies/movie.reducer';
 import { selectMovies } from './stores/movies/movie.selector';
 import * as MovieActions from './stores/movies/movie.actions';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { MovieDialogComponent } from './components/movie-dialog.component';
-
-
-export interface Movie {
-  name: string;
-  releaseYear: number;
-  mainActor: string;
-  length: number;
-  image: string;
-}
+import { MovieDialogComponent } from './components/movie-dialog/movie-dialog.component';
 
 @Component({
   selector: 'app-root',

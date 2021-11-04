@@ -1,5 +1,5 @@
-import { Movie } from '../../app.component';
 import { createAction, props } from '@ngrx/store';
+import { Movie, MovieFilters } from '../../models/movie.model';
 
 // LOAD
 export const loadMovies = createAction('[Movie] Get Movies');
@@ -16,6 +16,17 @@ export const addMovieSuccess = createAction('[Movie] Add Movie Success', props<{
 
 export const addMovieFailure = createAction('[Movie] Add Movie Failure', props<{ error: any }>());
 
+// FILTER
+export const updateFilters = createAction(
+  '[SpotlightProfile] Update Filters',
+  props<{ filters: Partial<MovieFilters> }>(),
+);
+
+export const updateFiltersWithKeyValue = createAction(
+  '[Movie] Update Filters With Key Value',
+  props<{ key: string; value: unknown }>(),
+);
+
 
 // RESET
-// export const resetToDefaultMovie = createAction('[Movie] Reset Movie');
+export const clearFilters = createAction('[Movie] Clear All Filters');
