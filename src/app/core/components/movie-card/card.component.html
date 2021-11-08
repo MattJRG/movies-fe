@@ -1,0 +1,26 @@
+<div *ngIf="movie; else defaultCard" class="card">
+  <div class="cover">
+    <img [src]="movie.image"
+      alt="movie cover">
+  </div>
+
+  <div class="details">
+    <div class="primary-text">{{ movie.name }}</div>
+    <div class="secondary-text">{{ movie.mainActor }}</div>
+    <div>{{ movie.length }} minutes</div>
+    <div>{{ movie.releaseYear }}</div>
+  </div>
+</div>
+
+<ng-template #defaultCard>
+  <div class="card empty"
+    (click)="onAddMovie()">
+    <button mat-fab
+      matTooltip="Add Movie"
+      color="primary"
+      (click)="onAddMovie()">
+      <mat-icon aria-hidden="true">add</mat-icon>
+    </button>
+  </div>
+</ng-template>
+

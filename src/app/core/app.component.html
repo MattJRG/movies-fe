@@ -4,24 +4,12 @@
 
 <main>
   <div class="container">
-
     <div class="gallery">
-      <div *ngFor="let movie of movies$ | async" class="card">
-        <div class="cover">
-          <img [src]="movie.image"
-            alt="movie cover">
-        </div>
-
-        <div class="details">
-          <div class="primary-text">{{ movie.name }}</div>
-          <div class="secondary-text">{{ movie.mainActor }}</div>
-          <div>{{ movie.length }} minutes</div>
-          <div>{{ movie.releaseYear }}</div>
-        </div>
-      </div>
-      <div class="card empty">
-        <a (click)="onAddMovie()">Add</a>
-      </div>
+      <card-component *ngFor="let movie of movies$ | async"
+        [movie]="movie">
+      </card-component>
+      <card-component>
+      </card-component>
     </div>
   </div>
 </main>

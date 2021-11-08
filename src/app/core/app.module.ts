@@ -7,6 +7,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppComponent } from './app.component';
+import { CardModule } from './components/movie-card/card.component.module';
 import { MovieDialogComponentModule } from './components/movie-dialog/movie-dialog.component.module';
 import { MovieStoreModule } from './stores/movies/movie-store.module';
 import { metaReducers, reducers } from './stores/movies/reducer';
@@ -37,6 +38,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     StoreDevtoolsModule.instrument(),
     MatInputModule,
     MatIconModule,
+    CardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

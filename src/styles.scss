@@ -9,4 +9,15 @@ body {
     margin-left: auto;
     margin-right: auto;
   }
+
+  .link-with-icon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-decoration: none;
+
+    mat-icon {
+      margin-right: 4px;
+    }
+  }
 }

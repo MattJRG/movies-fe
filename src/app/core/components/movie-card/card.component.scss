@@ -1,0 +1,60 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 212px;
+  border: 1px solid grey;
+  border-radius: 4px;
+
+  &.empty {
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgrey;
+  }
+
+  .cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #a3a3a3;
+
+    img {
+      height: 302px;
+      width: 212px;
+    }
+  }
+
+  .details {
+    height: 100%;
+    padding: 16px;
+    background-color: white;
+
+    > div {
+      margin-bottom: 8px;
+    }
+
+    .primary-text {
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    .secondary-text {
+      font-size: 16px;
+    }
+  }
+}
+
+.card.empty {
+  .mat-fab {
+    transition: 0.1s all ease-in-out;
+  }
+
+  &:hover {
+    background: darkgray;
+    cursor: pointer;
+
+    .mat-fab {
+      transform: translateY(-4px) scale(1.03);
+    }
+  }
+}
